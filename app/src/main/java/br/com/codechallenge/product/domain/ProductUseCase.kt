@@ -31,7 +31,7 @@ class ProductUseCase(
         }
     }
 
-    fun initMock(){
+    fun initMock() {
         return try {
             repository.saveMockProduct(ProductMock.productMock)
         } catch (throwable: Throwable) {

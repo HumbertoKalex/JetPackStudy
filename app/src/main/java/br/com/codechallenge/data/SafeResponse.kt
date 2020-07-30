@@ -6,7 +6,9 @@ import java.io.IOException
 
 sealed class SafeResponse<out T> {
     data class Success<out T>(val value: T) : SafeResponse<T>()
-    data class GenericError(val code: Int? = null, val error: Response<*>? = null) : SafeResponse<Nothing>()
+    data class GenericError(val code: Int? = null, val error: Response<*>? = null) :
+        SafeResponse<Nothing>()
+
     object NetworkError : SafeResponse<Nothing>()
 }
 

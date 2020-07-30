@@ -18,7 +18,7 @@ class ProductListActivity : AppCompatActivity(R.layout.activity_main) {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        title=getString(R.string.pedido_facil)
+        title = getString(R.string.pedido_facil)
         setupObservers()
         viewModel.initMock()
         viewModel.loadProducts()
@@ -29,7 +29,8 @@ class ProductListActivity : AppCompatActivity(R.layout.activity_main) {
             when (it) {
                 is ProductListViewCommand.LoadingProducts -> showLoad()
 
-                is ProductListViewCommand.ProductSaved -> {}
+                is ProductListViewCommand.ProductSaved -> {
+                }
 
                 is ProductListViewCommand.ProductsLoaded -> {
                     hideLoad()

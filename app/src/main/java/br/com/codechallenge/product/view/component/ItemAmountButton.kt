@@ -13,13 +13,13 @@ class ItemAmountButton : ConstraintLayout {
     constructor(context: Context, attrs: AttributeSet?) : this(context, attrs, 0)
 
     constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(
-            context,
-            attrs,
-            defStyleAttr
+        context,
+        attrs,
+        defStyleAttr
     )
 
-    var onAmountChangeListener : (Int) -> Unit = {}
-    var onStockLevelMaxListener : () -> Unit = {}
+    var onAmountChangeListener: (Int) -> Unit = {}
+    var onStockLevelMaxListener: () -> Unit = {}
 
     private var stokLevel: Int = 0
 
@@ -51,11 +51,11 @@ class ItemAmountButton : ConstraintLayout {
         }
     }
 
-    fun setStockLevel(stockLevel:Int = 0){
+    fun setStockLevel(stockLevel: Int = 0) {
         this.stokLevel = stockLevel
     }
 
-    private companion object{
+    private companion object {
         private const val MIN_VALUE = 1
         private const val INCREASE_AMOUNT = 1
     }

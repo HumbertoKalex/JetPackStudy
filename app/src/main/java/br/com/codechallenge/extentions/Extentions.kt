@@ -43,12 +43,12 @@ fun List<SavedProductEntity>.toProductsModel(): List<ProductModel> {
 
 fun ProductModel.toProductsEntity(): SavedProductEntity {
     return SavedProductEntity(
-            this.id,
-            this.title,
-            this.subTitle,
-            this.description,
-            this.savedUnits,
-            this.price,
-            this.img
-        )
+        this.id,
+        this.title,
+        this.subTitle,
+        this.description,
+        this.savedUnits,
+        this.price,
+        this.img
+    )
 }

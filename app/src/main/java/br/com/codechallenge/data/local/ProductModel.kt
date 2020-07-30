@@ -1,8 +1,5 @@
 package br.com.codechallenge.data.local
 
-import androidx.room.PrimaryKey
-import com.google.gson.annotations.SerializedName
-
 data class ProductModel(
     val id: String,
     val title: String? = null,
