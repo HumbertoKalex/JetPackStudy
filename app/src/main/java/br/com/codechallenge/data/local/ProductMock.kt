@@ -16,7 +16,7 @@ object ProductMock {
         ),
         ProductEntity(
             "12313445",
-            "Bebida",
+            "Alcool",
             "1x24Unidad",
             "120ML CAN",
             10,
@@ -26,7 +26,7 @@ object ProductMock {
         ),
         ProductEntity(
             "1237547545",
-            "Bebida",
+            "PepsiCola",
             "1x24Unidad",
             "120ML CAN",
             10,
@@ -36,7 +36,7 @@ object ProductMock {
         ),
         ProductEntity(
             "12341341255",
-            "Bebida",
+            "CocaCola",
             "1x24Unidad",
             "120ML CAN",
             10,

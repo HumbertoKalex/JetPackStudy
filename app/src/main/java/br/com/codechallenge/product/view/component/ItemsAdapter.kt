@@ -18,7 +18,6 @@ import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.view_item.view.*
 import kotlinx.android.synthetic.main.view_item_amount_button.view.*
 
-
 class ItemsAdapter(
     private var items: List<ProductModel>
 ) : RecyclerView.Adapter<ItemsAdapter.ViewModel>() {
@@ -71,7 +70,6 @@ class ItemsAdapter(
                 amountButton.amountTextView.doAfterTextChanged { enableButton(addButton) }
 
             }
-
         }
     }
 
@@ -81,8 +79,8 @@ class ItemsAdapter(
         with(addButton) {
             isEnabled = false
             setCompoundDrawablesRelativeWithIntrinsicBounds(
-                addButton.context.getDrawable(R.drawable.ic_check),
                 null,
+                addButton.context.getDrawable(R.drawable.ic_check),
                 null,
                 null
             )

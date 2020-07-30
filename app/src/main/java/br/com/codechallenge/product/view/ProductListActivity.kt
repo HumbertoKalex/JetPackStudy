@@ -46,7 +46,7 @@ class ProductListActivity : AppCompatActivity(R.layout.activity_main) {
     }
 
     private fun setUpAdapter(products: List<ProductModel>) {
-        adapter = ItemsAdapter(products)
+        adapter = ItemsAdapter(products.sortedBy { it.title })
         recyclerProducts.adapter = adapter
         adapter.notifyDataSetChanged()
 
