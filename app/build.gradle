@@ -1,0 +1,73 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.3"
+
+    defaultConfig {
+        applicationId "br.com.codechallenge"
+        minSdkVersion 21
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
+    }
+}
+
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation deps.androidx.kotlin
+    implementation deps.androidx.appcompat
+    implementation deps.androidx.core
+    implementation deps.androidx.constraint
+    implementation deps.androidx.recycler
+    implementation deps.androidx.lifecycle
+    implementation deps.androidx.lifecyclemodel
+
+    implementation deps.koin.core
+    implementation deps.koin.scope
+    implementation deps.koin.viewmodel
+
+    implementation deps.courotines.core
+    implementation deps.courotines.android
+
+    implementation deps.glide.core
+
+    implementation deps.room.core
+    kapt deps.room.kapt
+
+    implementation deps.retrofit.core
+    implementation deps.retrofit.gson
+    implementation deps.okhttp.core
+    implementation deps.okhttp.interceptor
+
+    testImplementation deps.localTest.junit5.jupiter_api
+    testImplementation deps.localTest.junit5.jupiter_params
+    testImplementation deps.localTest.junit5.platform
+    testImplementation deps.localTest.junit5.plugin
+    testImplementation deps.localTest.mockK.core
+
+    testRuntimeOnly deps.localTest.junit5.jupiter_engine
+    testRuntimeOnly deps.localTest.junit5.vintage_engine
+}
