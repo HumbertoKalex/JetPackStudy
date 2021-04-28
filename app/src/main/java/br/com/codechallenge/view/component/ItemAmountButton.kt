@@ -1,4 +1,4 @@
-package br.com.codechallenge.product.view.component
+package br.com.codechallenge.view.component
 
 import android.content.Context
 import android.util.AttributeSet

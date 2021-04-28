@@ -1,4 +1,4 @@
-package br.com.codechallenge.product.domain
+package br.com.codechallenge.domain
 
 import br.com.codechallenge.data.local.ProductMock
 import br.com.codechallenge.data.local.ProductModel
@@ -10,7 +10,7 @@ import br.com.codechallenge.extentions.toProductsModel
 class ProductUseCase(
     private val repository: ProductRepository
 ) {
-    fun getProducts(): List<ProductModel> {
+    suspend fun getProducts(): List<ProductModel> {
         return try {
             val savedProducts = repository.getSavedProducts()
 
@@ -23,7 +23,7 @@ class ProductUseCase(
         }
     }
 
-    fun saveProduct(productModel: ProductModel) {
+    suspend fun saveProduct(productModel: ProductModel) {
         try {
             repository.saveProduct(productModel.toProductsEntity())
         } catch (throwable: Throwable) {
@@ -31,7 +31,7 @@ class ProductUseCase(
         }
     }
 
-    fun initMock() {
+    suspend fun initMock() {
         return try {
             repository.saveMockProduct(ProductMock.productMock)
         } catch (throwable: Throwable) {

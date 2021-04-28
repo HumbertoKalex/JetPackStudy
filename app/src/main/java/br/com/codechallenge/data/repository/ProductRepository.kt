@@ -8,13 +8,13 @@ class ProductRepository(
     private val dataBase: DataBase
 ) {
 
-    fun getProducts() = dataBase.productDao().getAllProducts()
+    suspend fun getProducts() = dataBase.productDao().getAllProducts()
 
-    fun getSavedProducts() = dataBase.productDao().getAllSaved()
+    suspend fun getSavedProducts() = dataBase.productDao().getAllSaved()
 
-    fun saveProduct(savedProductEntity: SavedProductEntity) =
+    suspend fun saveProduct(savedProductEntity: SavedProductEntity) =
         dataBase.productDao().insertSavedProduct(savedProductEntity)
 
-    fun saveMockProduct(productEntity: List<ProductEntity>) =
+    suspend fun saveMockProduct(productEntity: List<ProductEntity>) =
         dataBase.productDao().insertMock(productEntity)
 }

@@ -32,6 +32,8 @@ android {
     kotlinOptions {
         jvmTarget = JavaVersion.VERSION_1_8.toString()
     }
+
+    dataBinding.enabled = true
 }
 
 
@@ -44,6 +46,12 @@ dependencies {
     implementation deps.androidx.recycler
     implementation deps.androidx.lifecycle
     implementation deps.androidx.lifecyclemodel
+//    implementation deps.androidx.databinding
+    implementation deps.androidx.material
+    implementation deps.androidx.roomktx
+
+    implementation deps.androidx.navigationFragment
+    implementation deps.androidx.navigationUi
 
     implementation deps.koin.core
     implementation deps.koin.scope

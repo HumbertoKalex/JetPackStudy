@@ -7,22 +7,22 @@ object ProductMock {
         ProductEntity(
             "12345",
             "Bebida",
-            "1x24Unidad",
+            "1x24Unidade",
             "120ML CAN",
             10,
             "R$10.20",
             "R$1.20",
-            "https://qa-m1-dr.abi-sandbox.net/media/catalog/product//-/R/-R002151.png"
+            "https://cdn3.iconfinder.com/data/icons/drink-30/64/alcohol-beer-drink-bottle-512.png"
         ),
         ProductEntity(
             "12313445",
             "Alcool",
-            "1x24Unidad",
+            "1x24Unidade",
             "120ML CAN",
             10,
             "R$10.20",
             null,
-            "https://qa-m1-dr.abi-sandbox.net/media/catalog/product//-/R/-R002151.png"
+            "https://icon-library.com/images/beer-icon/beer-icon-13.jpg"
         ),
         ProductEntity(
             "1237547545",
@@ -32,7 +32,7 @@ object ProductMock {
             10,
             "R$15.60",
             "R$5.60",
-            "https://qa-m1-dr.abi-sandbox.net/media/catalog/product//-/R/-R002151.png"
+            "https://assets.webiconspng.com/uploads/2017/09/Pepsi-PNG-Image-44437-768x768.png"
         ),
         ProductEntity(
             "12341341255",
@@ -42,7 +42,7 @@ object ProductMock {
             10,
             "R$10.20",
             null,
-            "https://qa-m1-dr.abi-sandbox.net/media/catalog/product//-/R/-R002151.png"
+            "https://icons.iconarchive.com/icons/michael/coke-pepsi/256/Coca-Cola-Can-icon.png"
         )
     )
 }

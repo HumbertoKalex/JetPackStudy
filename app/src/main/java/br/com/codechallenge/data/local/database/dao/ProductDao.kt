@@ -11,22 +11,22 @@ import br.com.codechallenge.data.local.database.entity.SavedProductEntity
 interface ProductDao {
 
     @Query("SELECT * FROM savedProduct")
-    fun getAllSaved(): List<SavedProductEntity>
+    suspend fun getAllSaved(): List<SavedProductEntity>
 
     @Query("SELECT * FROM product")
-    fun getAllProducts(): List<ProductEntity>
+    suspend fun getAllProducts(): List<ProductEntity>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertSavedProduct(product: SavedProductEntity)
+    suspend fun insertSavedProduct(product: SavedProductEntity)
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertProduct(product: ProductEntity)
+    suspend fun insertProduct(product: ProductEntity)
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertMock(product: List<ProductEntity>)
+    suspend fun insertMock(product: List<ProductEntity>)
 
     @Query("DELETE FROM product WHERE id = :id")
-    fun removeProduct(id: String)
+    suspend fun removeProduct(id: String)
 
     @Query("DELETE FROM savedProduct WHERE id = :id")
     fun removeSavedProduct(id: String)
