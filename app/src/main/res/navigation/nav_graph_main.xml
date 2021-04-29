@@ -8,7 +8,7 @@
 
     <fragment
         android:id="@+id/productListFragment"
-        android:name="br.com.codechallenge.view.ProductListFragment"
+        android:name="br.com.jetpack.view.ProductListFragment"
         android:label="ProductListFragment"
         tools:layout="@layout/fragment_product_list">
 
@@ -21,7 +21,7 @@
 
     <fragment
         android:id="@+id/productDetailFragment"
-        android:name="br.com.codechallenge.view.ProductDetailFragment"
+        android:name="br.com.jetpack.view.ProductDetailFragment"
         android:label="HostMenuFragment"
         tools:layout="@layout/fragment_product_list"/>
 

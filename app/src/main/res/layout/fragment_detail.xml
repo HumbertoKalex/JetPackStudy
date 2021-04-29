@@ -7,7 +7,7 @@
     <data>
         <variable
             name="viewModel"
-            type="br.com.codechallenge.viewmodel.ProductListViewModel" />
+            type="br.com.jetpack.viewmodel.ProductListViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
