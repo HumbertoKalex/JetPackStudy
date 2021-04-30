@@ -2,6 +2,10 @@ package br.com.jetpack.data.local
 
 import br.com.jetpack.data.local.database.entity.ProductEntity
 
+/**
+ *Created by humbertokalex
+ */
+
 object ProductMock {
     val productMock = listOf<ProductEntity>(
         ProductEntity(
@@ -21,7 +25,7 @@ object ProductMock {
             "120ML CAN",
             10,
             "R$10.20",
-            null,
+            "",
             "https://icon-library.com/images/beer-icon/beer-icon-13.jpg"
         ),
         ProductEntity(
@@ -41,7 +45,7 @@ object ProductMock {
             "120ML CAN",
             10,
             "R$10.20",
-            null,
+            "",
             "https://icons.iconarchive.com/icons/michael/coke-pepsi/256/Coca-Cola-Can-icon.png"
         )
     )

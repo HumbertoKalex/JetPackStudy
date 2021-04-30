@@ -6,6 +6,10 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import br.com.jetpack.R
 import kotlinx.android.synthetic.main.view_item_amount_button.view.*
 
+/**
+ *Created by humbertokalex
+ */
+
 class ItemAmountButton : ConstraintLayout {
 
     constructor(context: Context) : this(context, null)

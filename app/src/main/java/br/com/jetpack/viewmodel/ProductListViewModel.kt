@@ -14,6 +14,16 @@ import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.launch
 import kotlin.coroutines.CoroutineContext
 
+/**
+ *Created by humbertokalex
+ */
+
+/*
+    Aqui eu uso apenas uma view model pela simplicidade das telas.
+    Em um meio mais real, cada fragmento teria sua view model, ou cada fluxo teria sua view model.
+    Tudo depende da complexidade do seu objetivo.
+ */
+
 class ProductListViewModel(
     private val useCase: ProductUseCase,
     private val dispatcher: CoroutineContext = Dispatchers.IO + SupervisorJob()
@@ -25,67 +35,67 @@ class ProductListViewModel(
     var viewLiveData: ViewLiveData = ViewLiveData()
 
     inner class ViewLiveData {
-        val name: MutableLiveData<String> = MutableLiveData("")
-        val url: MutableLiveData<String> = MutableLiveData("")
+        val productDetailModel: MutableLiveData<ProductModel> = MutableLiveData()
     }
 
-    fun initMock() {
-        viewModelScope.launch(dispatcher) {
+    fun initMock() = viewModelScope.launch(dispatcher) {
             when (val response = safeRequest { useCase.initMock() }) {
-                is SafeResponse.Success -> {
-                }
+                is SafeResponse.Success -> { }
                 is SafeResponse.GenericError -> ProductListViewCommand.Error(
-                    response.error?.message()
-                )
-                    .run()
-                is SafeResponse.NetworkError -> ProductListViewCommand.Error(
-                    null
-                ).run()
+                    response.error?.message()).run()
+                is SafeResponse.NetworkError -> ProductListViewCommand.Error(null).run()
             }
         }
-    }
 
-    fun loadProducts() {
-        viewModelScope.launch(dispatcher) {
+    fun loadProducts() = viewModelScope.launch(dispatcher) {
             ProductListViewCommand.LoadingProducts.run()
             when (val response = safeRequest { useCase.getProducts() }) {
                 is SafeResponse.Success -> ProductListViewCommand.ProductsLoaded(
-                    response.value
-                ).run()
+                    response.value).run()
                 is SafeResponse.GenericError -> ProductListViewCommand.Error(
-                    response.error?.message()
-                ).run()
-                is SafeResponse.NetworkError -> ProductListViewCommand.Error(
-                    null
-                ).run()
+                    response.error?.message()).run()
+                is SafeResponse.NetworkError -> ProductListViewCommand.Error(null).run()
             }
+        }
+
+    fun loadSavedProducts() = viewModelScope.launch(dispatcher) {
+        ProductListViewCommand.LoadingProducts.run()
+        when (val response = safeRequest { useCase.getSavedProducts() }) {
+            is SafeResponse.Success -> ProductListViewCommand.ProductsLoaded(
+                response.value).run()
+            is SafeResponse.GenericError -> ProductListViewCommand.Error(
+                response.error?.message()).run()
+            is SafeResponse.NetworkError -> ProductListViewCommand.Error(null).run()
         }
     }
 
-    fun saveProduct(productModel: ProductModel) {
-        viewModelScope.launch(dispatcher) {
+    fun saveProduct(productModel: ProductModel) = viewModelScope.launch(dispatcher) {
             when (val response = safeRequest { useCase.saveProduct(productModel) }) {
                 is SafeResponse.Success -> ProductListViewCommand.ProductSaved.run()
                 is SafeResponse.GenericError -> ProductListViewCommand.Error(
-                    response.error?.message()
-                ).run()
-                is SafeResponse.NetworkError -> ProductListViewCommand.Error(
-                    null
-                ).run()
+                    response.error?.message()).run()
+                is SafeResponse.NetworkError -> ProductListViewCommand.Error(null).run()
             }
         }
-    }
+
+    fun removeProduct(productModel: ProductModel) = viewModelScope.launch(dispatcher) {
+            when (val response = safeRequest { useCase.removeProduct(productModel) }) {
+                is SafeResponse.Success -> ProductListViewCommand.ProductRemoved.run()
+                is SafeResponse.GenericError -> ProductListViewCommand.Error(
+                    response.error?.message()).run()
+                is SafeResponse.NetworkError -> ProductListViewCommand.Error(null).run()
+            }
+        }
 
     fun goToDetail(productModel: ProductModel) = run {
-        viewLiveData.name.value = productModel.title
-        viewLiveData.url.value = productModel.img
-        ProductListViewCommand.GoToDetail(productModel).run()
+        viewLiveData.productDetailModel.value = productModel
+        ProductListViewCommand.GoToDetail.run()
     }
+
+    fun goToSavedProducts() = ProductListViewCommand.GoToSavedProduct.run()
 
     fun onBack() = ProductListViewCommand.OnBack.run()
 
-    private fun ProductListViewCommand.run() {
-        mutableCommand.postValue(this)
-    }
+    private fun ProductListViewCommand.run() = mutableCommand.postValue(this)
 
 }

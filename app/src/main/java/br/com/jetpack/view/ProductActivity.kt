@@ -6,6 +6,10 @@ import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import br.com.jetpack.R
 
+/**
+ *Created by humbertokalex
+ */
+
 class ProductActivity : AppCompatActivity(R.layout.activity_main) {
 
     private lateinit var navController: NavController

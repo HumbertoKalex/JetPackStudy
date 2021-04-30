@@ -16,13 +16,28 @@
             android:id="@+id/action_listFragment_to_detailFragment"
             app:destination="@id/productDetailFragment"/>
 
+        <action
+            android:id="@+id/action_listFragment_to_savedListFragment"
+            app:destination="@id/productSavedListFragment"/>
 
     </fragment>
 
     <fragment
         android:id="@+id/productDetailFragment"
         android:name="br.com.jetpack.view.ProductDetailFragment"
-        android:label="HostMenuFragment"
-        tools:layout="@layout/fragment_product_list"/>
+        android:label="ProductDetailFragment"
+        tools:layout="@layout/fragment_detail"/>
+
+    <fragment
+        android:id="@+id/productSavedListFragment"
+        android:name="br.com.jetpack.view.ProductSavedListFragment"
+        android:label="ProductSavedListFragment"
+        tools:layout="@layout/fragment_product_list">
+
+        <action
+            android:id="@+id/action_savedListFragment_to_detailFragment"
+            app:destination="@id/productDetailFragment"/>
+
+    </fragment>
 
 </navigation>

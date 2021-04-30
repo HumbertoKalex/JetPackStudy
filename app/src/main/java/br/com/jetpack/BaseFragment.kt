@@ -7,6 +7,10 @@ import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
 
+/**
+ *Created by humbertokalex
+ */
+
 abstract class BaseFragment: Fragment(){
 
     fun <T : ViewDataBinding> getDataBinding(

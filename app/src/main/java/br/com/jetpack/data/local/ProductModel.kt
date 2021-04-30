@@ -1,13 +1,17 @@
 package br.com.jetpack.data.local
 
+/**
+ *Created by humbertokalex
+ */
+
 data class ProductModel(
     val id: String,
-    val title: String? = null,
-    val subTitle: String? = null,
-    val description: String? = null,
-    val availableUnits: Int? = null,
-    var savedUnits: Int? = null,
-    val price: String? = null,
-    val promoPrice: String? = null,
-    val img: String? = null
+    val title: String,
+    val subTitle: String,
+    val description: String,
+    val availableUnits: Int,
+    var savedUnits: Int,
+    val price: String,
+    val promoPrice: String,
+    val img: String
 )

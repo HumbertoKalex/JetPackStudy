@@ -13,6 +13,10 @@ import br.com.jetpack.viewmodel.ProductListViewModel
 import com.bumptech.glide.Glide
 import org.koin.android.viewmodel.ext.android.sharedViewModel
 
+/**
+ *Created by humbertokalex
+ */
+
 class ProductDetailFragment : BaseFragment() {
 
     private lateinit var binding: FragmentDetailBinding
@@ -31,7 +35,7 @@ class ProductDetailFragment : BaseFragment() {
     }
 
     private fun setUpView() {
-        Glide.with(requireActivity()).load(viewModel.viewLiveData.url.value)
+        Glide.with(requireActivity()).load(viewModel.viewLiveData.productDetailModel.value?.img)
             .into(binding.imageProductDetail)
     }
 

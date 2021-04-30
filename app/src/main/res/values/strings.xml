@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">JetPackStudy</string>
     <string name="pedido_facil">Pedido Fácil</string>
+    <string name="adicionar">Adicionar</string>
+    <string name="excluir">Excluir</string>
+    <string name="voltar">Voltar</string>
+    <string name="saved_products">Saved Products</string>
+    <string name="products">Products</string>
 </resources>

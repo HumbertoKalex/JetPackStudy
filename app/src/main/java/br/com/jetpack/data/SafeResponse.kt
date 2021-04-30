@@ -4,6 +4,10 @@ import retrofit2.HttpException
 import retrofit2.Response
 import java.io.IOException
 
+/**
+ *Created by humbertokalex
+ */
+
 sealed class SafeResponse<out T> {
     data class Success<out T>(val value: T) : SafeResponse<T>()
     data class GenericError(val code: Int? = null, val error: Response<*>? = null) :

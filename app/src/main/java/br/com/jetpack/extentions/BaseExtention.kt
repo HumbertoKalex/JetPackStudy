@@ -6,6 +6,10 @@ import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
 
+/**
+ *Created by humbertokalex
+ */
+
 fun Application.startKoinApp() {
     startKoin {
         androidContext(this@startKoinApp)

@@ -9,6 +9,10 @@ import org.koin.android.viewmodel.dsl.viewModel
 import org.koin.core.context.loadKoinModules
 import org.koin.dsl.module
 
+/**
+ *Created by humbertokalex
+ */
+
 object Modules {
     private val dataModule = module {
         single {

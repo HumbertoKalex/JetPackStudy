@@ -11,17 +11,17 @@ data class ProductEntity(
     @SerializedName("Id")
     val id: String,
     @SerializedName("Title")
-    val title: String? = null,
+    val title: String,
     @SerializedName("SubTitle")
-    val subTitle: String? = null,
+    val subTitle: String,
     @SerializedName("Description")
-    val description: String? = null,
+    val description: String,
     @SerializedName("AvailableUnits")
-    val availableUnits: Int? = null,
+    val availableUnits: Int,
     @SerializedName("Price")
-    val price: String? = null,
+    val price: String,
     @SerializedName("PromoPrice")
-    val promoPrice: String? = null,
+    val promoPrice: String,
     @SerializedName("Img")
-    val img: String? = null
+    val img: String
 ):Serializable

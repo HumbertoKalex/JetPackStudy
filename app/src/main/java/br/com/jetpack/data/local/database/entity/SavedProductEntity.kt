@@ -11,15 +11,15 @@ data class SavedProductEntity(
     @SerializedName("Id")
     val id: String,
     @SerializedName("Title")
-    val title: String? = null,
+    val title: String,
     @SerializedName("SubTitle")
-    val subTitle: String? = null,
+    val subTitle: String,
     @SerializedName("Description")
-    val description: String? = null,
+    val description: String,
     @SerializedName("UnitsSaved")
-    val unitsSaved: Int? = null,
+    val unitsSaved: Int,
     @SerializedName("Price")
-    val price: String? = null,
+    val price: String,
     @SerializedName("Img")
-    val img: String? = null
+    val img: String
 ):Serializable
