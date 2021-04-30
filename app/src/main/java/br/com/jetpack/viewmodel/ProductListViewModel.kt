@@ -34,6 +34,7 @@ class ProductListViewModel(
 
     var viewLiveData: ViewLiveData = ViewLiveData()
 
+    //Esta classe é um "encapsulador" de live data que fiz para o xml ter visibilidade das variaveis que eu quero que ele acompanhe
     inner class ViewLiveData {
         val productDetailModel: MutableLiveData<ProductModel> = MutableLiveData()
     }

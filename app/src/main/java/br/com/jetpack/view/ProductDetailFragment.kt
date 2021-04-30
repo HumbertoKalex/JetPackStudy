@@ -46,9 +46,4 @@ class ProductDetailFragment : BaseFragment() {
             }
         })
     }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        viewModel.command.removeObservers(viewLifecycleOwner)
-    }
 }
