@@ -95,5 +95,10 @@ class ProductListFragment : BaseFragment() {
         recyclerProducts.isVisible(true)
         progressBar.isVisible(false)
     }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        viewModel.command.removeObservers(viewLifecycleOwner)
+    }
 }
 
