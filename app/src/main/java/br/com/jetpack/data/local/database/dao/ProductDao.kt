@@ -29,6 +29,6 @@ interface ProductDao {
     suspend fun removeProduct(id: String)
 
     @Query("DELETE FROM savedProduct WHERE id = :id")
-    fun removeSavedProduct(id: String)
+    suspend fun removeSavedProduct(id: String)
 
 }

@@ -8,6 +8,7 @@ import br.com.jetpack.data.SafeResponse
 import br.com.jetpack.data.local.ProductModel
 import br.com.jetpack.data.safeRequest
 import br.com.jetpack.domain.ProductUseCase
+import br.com.jetpack.domain.ProductUseCaseImpl
 import br.com.jetpack.view.ProductListViewCommand
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
@@ -21,7 +22,7 @@ import kotlin.coroutines.CoroutineContext
 /*
     Aqui eu uso apenas uma view model pela simplicidade das telas.
     Em um meio mais real, cada fragmento teria sua view model, ou cada fluxo teria sua view model.
-    Tudo depende da complexidade do seu objetivo.
+    Tudo depende da complexidade do seu objetivo e do princípio de reposabilidade única.
  */
 
 class ProductListViewModel(
@@ -34,6 +35,10 @@ class ProductListViewModel(
 
     var viewLiveData: ViewLiveData = ViewLiveData()
 
+    /*
+        Esta classe é um "encapsulador" de live data que fiz para o xml ter visibilidade
+    das variaveis que eu quero que ele acompanhe direto da viewModel.
+    */
     inner class ViewLiveData {
         val productDetailModel: MutableLiveData<ProductModel> = MutableLiveData()
     }

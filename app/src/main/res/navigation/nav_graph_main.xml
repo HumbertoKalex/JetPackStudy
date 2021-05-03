@@ -8,7 +8,7 @@
 
     <fragment
         android:id="@+id/productListFragment"
-        android:name="br.com.jetpack.view.ProductListFragment"
+        android:name="br.com.jetpack.view.fragments.ProductListFragment"
         android:label="ProductListFragment"
         tools:layout="@layout/fragment_product_list">
 
@@ -24,13 +24,13 @@
 
     <fragment
         android:id="@+id/productDetailFragment"
-        android:name="br.com.jetpack.view.ProductDetailFragment"
+        android:name="br.com.jetpack.view.fragments.ProductDetailFragment"
         android:label="ProductDetailFragment"
         tools:layout="@layout/fragment_detail"/>
 
     <fragment
         android:id="@+id/productSavedListFragment"
-        android:name="br.com.jetpack.view.ProductSavedListFragment"
+        android:name="br.com.jetpack.view.fragments.ProductSavedListFragment"
         android:label="ProductSavedListFragment"
         tools:layout="@layout/fragment_product_list">
 
