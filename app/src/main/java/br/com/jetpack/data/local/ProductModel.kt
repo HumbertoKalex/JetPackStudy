@@ -1,5 +1,7 @@
 package br.com.jetpack.data.local
 
+import androidx.annotation.DrawableRes
+
 /**
  *Created by humbertokalex
  */
@@ -13,5 +15,5 @@ data class ProductModel(
     var savedUnits: Int,
     val price: String,
     val promoPrice: String,
-    val img: String
+    @DrawableRes val img: Int
 )

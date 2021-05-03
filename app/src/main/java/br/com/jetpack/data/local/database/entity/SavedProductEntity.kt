@@ -1,5 +1,6 @@
 package br.com.jetpack.data.local.database.entity
 
+import androidx.annotation.DrawableRes
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
@@ -21,5 +22,5 @@ data class SavedProductEntity(
     @SerializedName("Price")
     val price: String,
     @SerializedName("Img")
-    val img: String
+    @DrawableRes val img: Int
 ):Serializable

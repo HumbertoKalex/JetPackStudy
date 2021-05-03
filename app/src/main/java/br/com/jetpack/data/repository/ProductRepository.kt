@@ -1,27 +1,18 @@
 package br.com.jetpack.data.repository
 
-import br.com.jetpack.data.local.database.DataBase
 import br.com.jetpack.data.local.database.entity.ProductEntity
 import br.com.jetpack.data.local.database.entity.SavedProductEntity
 
-/**
- *Created by humbertokalex
- */
+interface ProductRepository {
 
-class ProductRepository(
-    private val dataBase: DataBase
-) {
+    suspend fun getProducts(): List<ProductEntity>
 
-    suspend fun getProducts() = dataBase.productDao().getAllProducts()
+    suspend fun getSavedProducts(): List<SavedProductEntity>
 
-    suspend fun getSavedProducts() = dataBase.productDao().getAllSaved()
+    suspend fun saveProduct(savedProductEntity: SavedProductEntity)
 
-    suspend fun saveProduct(savedProductEntity: SavedProductEntity) =
-        dataBase.productDao().insertSavedProduct(savedProductEntity)
+    suspend fun removeProduct(savedProductEntity: SavedProductEntity)
 
-    suspend fun removeProduct(savedProductEntity: SavedProductEntity) =
-        dataBase.productDao().removeSavedProduct(savedProductEntity.id)
+    suspend fun saveMockProduct(productEntity: List<ProductEntity>)
 
-    suspend fun saveMockProduct(productEntity: List<ProductEntity>) =
-        dataBase.productDao().insertMock(productEntity)
 }

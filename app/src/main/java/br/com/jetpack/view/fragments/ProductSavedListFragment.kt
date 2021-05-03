@@ -1,4 +1,4 @@
-package br.com.jetpack.view
+package br.com.jetpack.view.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,12 +7,13 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
+import br.com.jetpack.BaseFragment
 import br.com.jetpack.R
 import br.com.jetpack.data.local.ProductModel
 import br.com.jetpack.databinding.FragmentProductListBinding
 import br.com.jetpack.extentions.isVisible
-import br.com.jetpack.BaseFragment
-import br.com.jetpack.view.component.SavedItemsAdapter
+import br.com.jetpack.view.ProductListViewCommand
+import br.com.jetpack.view.adapters.SavedItemsAdapter
 import br.com.jetpack.viewmodel.ProductListViewModel
 import kotlinx.android.synthetic.main.fragment_product_list.*
 import org.koin.android.viewmodel.ext.android.sharedViewModel
@@ -33,6 +34,7 @@ class ProductSavedListFragment : BaseFragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = getDataBinding(inflater, container, R.layout.fragment_product_list)
+        binding.viewModel = viewModel
         setupObservers()
         viewModel.loadSavedProducts()
         return binding.root
@@ -65,7 +67,9 @@ class ProductSavedListFragment : BaseFragment() {
     }
 
     private fun setUpAdapter(products: List<ProductModel>) {
-        adapter = SavedItemsAdapter(viewModel,products.sortedBy { it.title })
+        adapter = SavedItemsAdapter(
+            viewModel,
+            products.sortedBy { it.title })
         recyclerProducts.adapter = adapter
         adapter.notifyDataSetChanged()
     }

@@ -25,7 +25,7 @@ class ItemAmountButton : ConstraintLayout {
     var onAmountChangeListener: (Int) -> Unit = {}
     var onStockLevelMaxListener: () -> Unit = {}
 
-    private var stokLevel: Int = 0
+    private var stockLevel: Int = 0
 
     init {
         inflate(context, R.layout.view_item_amount_button, this)
@@ -44,19 +44,19 @@ class ItemAmountButton : ConstraintLayout {
 
         increaseButton.setOnClickListener {
             val amount = amountTextView.text.toString().toIntOrNull()
-            amount?.takeIf { it < stokLevel }?.let {
+            amount?.takeIf { it < stockLevel }?.let {
                 val amountIncrease = it + INCREASE_AMOUNT
                 amountTextView.text = amountIncrease.toString()
                 onAmountChangeListener(amountIncrease)
             }
-            amount?.takeIf { it >= stokLevel }?.let {
+            amount?.takeIf { it >= stockLevel }?.let {
                 onStockLevelMaxListener()
             }
         }
     }
 
     fun setStockLevel(stockLevel: Int = 0) {
-        this.stokLevel = stockLevel
+        this.stockLevel = stockLevel
     }
 
     private companion object {

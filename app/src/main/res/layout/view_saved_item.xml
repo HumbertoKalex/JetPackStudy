@@ -91,7 +91,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="@{String.valueOf(productModel.savedUnits), default=`0`}"
+            android:text="@{String.valueOf(productModel.savedUnits)}"
             android:textColor="#000000"
             android:textSize="18sp"
             android:textStyle="bold"

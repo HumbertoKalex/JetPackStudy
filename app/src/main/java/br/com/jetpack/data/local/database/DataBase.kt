@@ -11,7 +11,7 @@ import br.com.jetpack.data.local.database.entity.SavedProductEntity
 
 @Database(
     entities = [ProductEntity::class, SavedProductEntity::class],
-    version = 2,
+    version = 3,
     exportSchema = false
 )
 @TypeConverters(ProductConverter::class, SavedProductConverter::class)
